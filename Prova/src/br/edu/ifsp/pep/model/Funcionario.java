@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 
@@ -19,6 +20,8 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorValue(value = "funcionario")
 @DiscriminatorColumn(name = "tipo", length = 30, discriminatorType = DiscriminatorType.STRING)
+
+@NamedQuery(name = "Funcionario.listarFuncionarios", query = "select f from Funcionario f")
 public class Funcionario implements Serializable{
 
     @Id

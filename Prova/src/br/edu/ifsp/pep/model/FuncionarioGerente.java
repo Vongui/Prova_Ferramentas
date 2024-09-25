@@ -8,7 +8,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "funcionario_gerente")
-//@PrimaryKeyJoinColumn(name = "codigo")
 @DiscriminatorValue(value = "funcionario_gerente")
 public class FuncionarioGerente extends Funcionario{
 

@@ -3,14 +3,15 @@ package br.edu.ifsp.pep.model;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "funcionario_assalariado")
-//@PrimaryKeyJoinColumn(name = "codigo")
 @DiscriminatorValue(value = "funcionario_assalariado")
+@NamedQuery(name = "FuncionarioAssalariado.reajustaSalarioAssalariado", query = "select fa from FuncionarioAssalariado fa")
+@NamedQuery(name = "FuncionarioAssalariado.listarFuncionarioAssalariadosSalario", query = "select fa from FuncionarioAssalariado fa where fa.salario > 10000")
 public class FuncionarioAssalariado extends Funcionario{
 
     @Column(name = "salario")
